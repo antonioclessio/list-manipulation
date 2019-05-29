@@ -1,0 +1,31 @@
+<div class="row mb-4">
+  <div class="col-md-12">
+    <div class="form-inline">
+      <select class="form-control form-control-sm mr-2" id="ddlItens" #ddlItens>
+        <option>- Choose one -</option>
+        <option *ngFor="let dataItem of dataSource" [value]="dataItem.Id">{{ dataItem.Description }}</option>
+      </select>
+      <button class="btn btn-sm btn-primary" (click)="addItem(ddlItens.value)">Ok</button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <fieldset>
+      <legend>Itens Selected</legend>
+      <table class="table-sm table hover">
+        <thead>
+          <tr>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dataItem of selectedDataSource">
+            <td>{{ dataItem.Description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </fieldset>
+  </div>
+</div>

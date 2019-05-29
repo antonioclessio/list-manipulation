@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1>List Manipulation</h1>
+  </div>
+</div>
+
+<div class="row mb-2">
+  <div class="col-md-12">
+    <button class="btn btn-primary" data-toggle="modal" data-target="#modalItens">Add item</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-sm table-hover">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dataItem of dataSource">
+          <td>{{ dataItem.Id }}</td>
+          <td>{{ dataItem.Description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="modalItens" tabindex="-1" role="dialog" aria-labelledby="modalItens" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-list-itens (update)="updateItens($event)"></app-list-itens>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
